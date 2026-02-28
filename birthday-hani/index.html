@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Something for You❤️</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Dancing+Script:wght@400;700&family=Poppins:wght@300;400;600&display=swap"
+    rel="stylesheet" />
+</head>
+
+<body>
+
+  <!-- ==================== SLIDE 1 ==================== -->
+  <section class="slide active" id="slide1">
+    <div class="flower-bg"></div>
+    <div class="slide-content center">
+      <div class="petal-decoration top-left"></div>
+      <div class="petal-decoration top-right"></div>
+      <h1 class="typewriter main-text" id="text-slide1">Haloooo sayangggg</h1>
+      <div class="petal-decoration bottom-left"></div>
+      <div class="petal-decoration bottom-right"></div>
+    </div>
+    <div class="floating-petals" id="petals1"></div>
+  </section>
+
+  <!-- ==================== SLIDE 2: CHOICE 1 ==================== -->
+  <section class="slide" id="slide-choice1">
+    <div class="flower-bg"></div>
+    <div class="slide-content center">
+      <div class="question-card">
+        <div class="question-icon">🌸</div>
+        <h2 class="typewriter question-text" id="text-choice1">Kamu tau gaaa ini hari apaa</h2>
+        <div class="choices-container" id="choices1">
+          <button class="choice-btn correct-choice" onclick="handleChoice1('a')">
+            <span class="choice-icon">✨</span> Tauuu
+          </button>
+          <button class="choice-btn wrong-choice" onclick="handleChoice1('b')">
+            <span class="choice-icon">🤔</span> Gatauuu
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="floating-petals" id="petals2"></div>
+  </section>
+
+  <!-- ==================== WRONG CHOICE PAGE ==================== -->
+  <section class="slide" id="slide-wrong">
+    <div class="flower-bg wrong-bg"></div>
+    <div class="slide-content center">
+      <div class="question-card wrong-card">
+        <div class="question-icon">🌷</div>
+        <h2 class="typewriter question-text" id="text-wrong">Masa iya gatauu. Coba inget inget lagi dehh</h2>
+        <div class="choices-container">
+          <button class="choice-btn retry-btn" onclick="goToSlide('slide-choice1')">
+            <span class="choice-icon">🔄</span> Coba lagi!
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="floating-petals"></div>
+  </section>
+
+  <!-- ==================== SLIDE 3: CHOICE 2 ==================== -->
+  <section class="slide" id="slide-choice2">
+    <div class="flower-bg"></div>
+    <div class="slide-content center">
+      <div class="question-card">
+        <div class="question-icon">💐</div>
+        <h2 class="typewriter question-text" id="text-choice2">Apaa cobaaa???</h2>
+        <div class="choices-container three-choices" id="choices2">
+          <button class="choice-btn correct-choice" onclick="handleChoice2('a')">
+            <span class="choice-icon">🎂</span> Ultah akuuu
+          </button>
+          <button class="choice-btn wrong-choice" onclick="handleChoice2('b')">
+            <span class="choice-icon">☀️</span> Hari Sabtuu
+          </button>
+          <button class="choice-btn wrong-choice" onclick="handleChoice2('c')">
+            <span class="choice-icon">🤷</span> Gatau hehe
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="floating-petals"></div>
+  </section>
+
+  <!-- ==================== CORRECT PAGE ==================== -->
+  <section class="slide" id="slide-correct">
+    <div class="flower-bg correct-bg"></div>
+    <div class="slide-content center">
+      <div class="correct-burst">✨</div>
+      <h1 class="typewriter correct-text" id="text-correct">Angjayyy benerrr</h1>
+      <div class="stars-animation" id="stars-correct"></div>
+    </div>
+    <div class="floating-petals"></div>
+  </section>
+
+  <!-- ==================== EXPLAIN B (Hari Minggu) ==================== -->
+  <section class="slide" id="slide-explainB">
+    <div class="flower-bg"></div>
+    <div class="slide-content center">
+      <div class="explain-card">
+        <div class="question-icon">🌼</div>
+        <h2 class="typewriter question-text" id="text-explainB">Bener juga sihh. Tapi ada yang lebih spesial taukkk</h2>
+      </div>
+    </div>
+    <div class="floating-petals"></div>
+  </section>
+
+  <!-- ==================== EXPLAIN C (Gatau hehe) ==================== -->
+  <section class="slide" id="slide-explainC">
+    <div class="flower-bg"></div>
+    <div class="slide-content center">
+      <div class="explain-card">
+        <div class="question-icon">🌺</div>
+        <h2 class="typewriter question-text" id="text-explainC">Ah payahhh. Gitu aja gatauu. Huuuu</h2>
+      </div>
+    </div>
+    <div class="floating-petals"></div>
+  </section>
+
+  <!-- ==================== JADI... ==================== -->
+  <section class="slide" id="slide-jadi">
+    <div class="flower-bg"></div>
+    <div class="slide-content center">
+      <h1 class="typewriter so-text" id="text-jadi">Jadiii...</h1>
+    </div>
+    <div class="floating-petals"></div>
+  </section>
+
+  <!-- ==================== DISCUSSION ==================== -->
+  <section class="slide" id="slide-discussion">
+    <div class="flower-bg correct-bg"></div>
+    <div class="slide-content center">
+      <div class="discussion-card">
+        <div class="confetti-burst">🎊</div>
+        <h1 class="typewriter discuss-text" id="text-discussion">Ini Hari Ulang Tahun Kamuuuuu</h1>
+        <div class="confetti-burst">🎉</div>
+      </div>
+    </div>
+    <div class="floating-petals"></div>
+  </section>
+
+  <!-- ==================== SLIDE 4: COUNTDOWN ==================== -->
+  <section class="slide" id="slide4">
+    <div class="flower-bg slide4-bg"></div>
+    <div class="slide-content center">
+      <div class="countdown-card">
+        <p class="typewriter countdown-text" id="text-slide4">Loading...</p>
+      </div>
+    </div>
+    <div class="floating-petals"></div>
+  </section>
+
+  <!-- ==================== SLIDE 5 ==================== -->
+  <section class="slide" id="slide5">
+    <div class="flower-bg"></div>
+    <div class="slide-content center">
+      <h2 class="typewriter main-text" id="text-slide5">Tau gaaa siapa Bidadari ituu??</h2>
+    </div>
+    <div class="floating-petals"></div>
+  </section>
+
+  <!-- ==================== SLIDE 6: POLAROID ==================== -->
+  <section class="slide" id="slide6">
+    <div class="flower-bg slide6-bg"></div>
+    <div class="slide-content center polaroid-slide">
+      <div class="polaroid-container" id="polaroidContainer"></div>
+      <div class="center-text-overlay">
+        <h2 class="typewriter slide6-text" id="text-slide6">Iyaaa Kamuuu. Hani Handayani. Orang paling cantikk yang
+          pernah adaa.</h2>
+      </div>
+    </div>
+    <div class="floating-petals"></div>
+  </section>
+
+  <!-- ==================== SLIDE 7 ==================== -->
+  <section class="slide" id="slide7">
+    <div class="flower-bg"></div>
+    <div class="slide-content center">
+      <h2 class="typewriter main-text" id="text-slide7">Kenalan dulu yukkk sama diri kamuu</h2>
+    </div>
+    <div class="floating-petals"></div>
+  </section>
+
+  <!-- ==================== SLIDE 8: BIODATA ==================== -->
+  <section class="slide" id="slide8">
+    <div class="flower-bg slide8-bg"></div>
+    <div class="slide-content biodata-layout">
+      <h1 class="biodata-title" id="text-slide8-title">Siapasih kamu?</h1>
+      <div class="biodata-main">
+        <!-- Left photo -->
+        <div class="bio-photo left-photo">
+          <div class="photo-frame">
+            <div class="photo-placeholder left-photo-art">
+              <img src="assets/foto-kiri.jpg" alt="Foto Kecil" id="bioPhoto" class="bio-photo-img" />
+              <div class="flower-deco">🌸🌺🌸</div>
+            </div>
+          </div>
+        </div>
+        <!-- Paper -->
+        <div class="bio-paper">
+          <div class="paper-lines"></div>
+          <div class="bio-content">
+            <p><span class="bio-label">Nama</span><span class="bio-sep">:</span><span class="bio-val typewriter-bio"
+                id="bio-nama"></span></p>
+            <p><span class="bio-label">Tanggal Lahir</span><span class="bio-sep">:</span><span
+                class="bio-val typewriter-bio" id="bio-tl"></span></p>
+            <p><span class="bio-label">Zodiak</span><span class="bio-sep">:</span><span class="bio-val typewriter-bio"
+                id="bio-zod"></span></p>
+            <p><span class="bio-label">Spesies</span><span class="bio-sep">:</span><span class="bio-val typewriter-bio"
+                id="bio-sp"></span></p>
+            <p><span class="bio-label">Tempat Tinggal</span><span class="bio-sep">:</span><span
+                class="bio-val typewriter-bio" id="bio-tt"></span></p>
+            <p><span class="bio-label">Minuman Kesukaan</span><span class="bio-sep">:</span><span
+                class="bio-val typewriter-bio" id="bio-mk"></span></p>
+            <p><span class="bio-label">Warna Kesukaan</span><span class="bio-sep">:</span><span
+                class="bio-val typewriter-bio" id="bio-wk"></span></p>
+            <p><span class="bio-label">Kepribadian</span><span class="bio-sep">:</span><span
+                class="bio-val typewriter-bio" id="bio-kp"></span></p>
+            <p class="bio-more typewriter-bio" id="bio-more"></p>
+          </div>
+        </div>
+        <!-- Right photo -->
+        <div class="bio-photo right-photo">
+          <div class="photo-frame">
+            <div class="photo-placeholder right-photo-art">
+              <img src="assets/foto-kanan.jpg" alt="Foto Ultah" id="bioPhoto2" class="bio-photo-img" />
+              <div class="stars-small">✨⭐✨</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="floating-petals"></div>
+  </section>
+
+  <!-- ==================== SLIDE 9 ==================== -->
+  <section class="slide" id="slide9">
+    <div class="flower-bg slide9-bg"></div>
+    <div class="slide-content center">
+      <div class="wish-card">
+        <div class="wish-icon">🎂✨</div>
+        <h2 class="typewriter wish-text" id="text-slide9">Selamat Ulang Tahun yang ke-22 yaa sayangggg. Walaupun
+          harusnya sih masih 5,5 tahun, tapi gapapaa anggap aja 22 tahun hehe</h2>
+      </div>
+    </div>
+    <div class="floating-petals"></div>
+  </section>
+
+  <!-- ==================== SLIDE 10 ==================== -->
+  <section class="slide" id="slide10">
+    <div class="flower-bg"></div>
+    <div class="slide-content center">
+      <div class="game-preview">
+        <div class="game-icon">🎮</div>
+        <h2 class="typewriter main-text" id="text-slide10">Yokkk kita maen game duluu sebelum lanjutt.</h2>
+      </div>
+    </div>
+    <div class="floating-petals"></div>
+  </section>
+
+  <!-- ==================== SLIDE 11: MINIGAME ==================== -->
+  <section class="slide" id="slide-minigame">
+    <div class="minigame-wrapper">
+      <div class="minigame-header">
+        <h2 class="game-title">🎂 Tangkap Kuenya! 🎂</h2>
+        <div class="game-hud">
+          <span class="hud-item">� Score: <b id="gameScore">0</b></span>
+          <span class="hud-item">⏱️ <b id="gameTimer">45</b>s</span>
+          <span class="hud-item">🎯 Target: <b id="gameTargetDisplay">10</b></span>
+        </div>
+      </div>
+      <canvas id="gameCanvas" class="game-canvas"></canvas>
+      <!-- Start overlay -->
+      <div class="game-start-overlay" id="gameStartOverlay">
+        <div class="start-icon">�</div>
+        <h3>Tangkap Kue!</h3>
+        <p>Gunakan <kbd>←</kbd> <kbd>→</kbd> untuk gerakkan piring</p>
+        <p class="game-sub">Tangkap 10 kue jatuh dari awan!</p>
+        <button class="start-game-btn" onclick="startMiniGame()">Mulai Main! 🎮</button>
+      </div>
+      <!-- Game over overlay -->
+      <div class="game-over-overlay" id="gameOverOverlay" style="display:none;">
+        <div class="game-over-content">
+          <div class="go-icon" id="goIcon">🎉</div>
+          <h3 id="gameOverTitle">Horeee!</h3>
+          <p id="gameOverMsg">Kamu berhasil!</p>
+          <button class="start-game-btn" onclick="finishGame()">Lanjutt! 🌸</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== SLIDE 12: BIRTHDAY CAKE ==================== -->
+  <section class="slide" id="slide-cake">
+    <div class="cake-fullscreen">
+      <div class="cake-scene" id="cakeScene">
+        <!-- CSS 3D Cake (no candles) -->
+        <div class="cake-3d-wrapper" id="cake3d">
+          <img src="cake-image.png" alt="Kue Ultah" id="cakeImage" class="cake-image" />
+        </div>
+        <h2 class="cake-title" id="cakeTitle">🎂 Happy Birthday Sayanggg. Nih kue buat kamu 🎂</h2>
+      </div>
+      <canvas id="confettiCanvas" class="confetti-canvas"></canvas>
+      <!-- Dark overlay -->
+      <div class="dark-overlay" id="darkOverlay" style="opacity:0; pointer-events:none;">
+        <p class="message-text typewriter" id="messageText"></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== SLIDE 13: FLOWER NOTES ==================== -->
+  <section class="slide" id="slide-flowers">
+    <!-- Sky -->
+    <div class="garden-sky" id="gardenSky"></div>
+    <!-- Ground -->
+    <div class="garden-ground"></div>
+      <div class="flower flower--1">
+        <div class="flower__leafs flower__leafs--1">
+          <div class="flower__leaf flower__leaf--1"></div>
+          <div class="flower__leaf flower__leaf--2"></div>
+          <div class="flower__leaf flower__leaf--3"></div>
+          <div class="flower__leaf flower__leaf--4"></div>
+          <div class="flower__white-circle"></div>
+  
+          <div class="flower__light flower__light--1"></div>
+          <div class="flower__light flower__light--2"></div>
+          <div class="flower__light flower__light--3"></div>
+          <div class="flower__light flower__light--4"></div>
+          <div class="flower__light flower__light--5"></div>
+          <div class="flower__light flower__light--6"></div>
+          <div class="flower__light flower__light--7"></div>
+          <div class="flower__light flower__light--8"></div>
+  
+        </div>
+        <div class="flower__line">
+          <div class="flower__line__leaf flower__line__leaf--1"></div>
+          <div class="flower__line__leaf flower__line__leaf--2"></div>
+          <div class="flower__line__leaf flower__line__leaf--3"></div>
+          <div class="flower__line__leaf flower__line__leaf--4"></div>
+          <div class="flower__line__leaf flower__line__leaf--5"></div>
+          <div class="flower__line__leaf flower__line__leaf--6"></div>
+        </div>
+      </div>
+
+      <div class="flower flower--2">
+        <div class="flower__leafs flower__leafs--2">
+          <div class="flower__leaf flower__leaf--1"></div>
+          <div class="flower__leaf flower__leaf--2"></div>
+          <div class="flower__leaf flower__leaf--3"></div>
+          <div class="flower__leaf flower__leaf--4"></div>
+          <div class="flower__white-circle"></div>
+  
+          <div class="flower__light flower__light--1"></div>
+          <div class="flower__light flower__light--2"></div>
+          <div class="flower__light flower__light--3"></div>
+          <div class="flower__light flower__light--4"></div>
+          <div class="flower__light flower__light--5"></div>
+          <div class="flower__light flower__light--6"></div>
+          <div class="flower__light flower__light--7"></div>
+          <div class="flower__light flower__light--8"></div>
+  
+        </div>
+        <div class="flower__line">
+          <div class="flower__line__leaf flower__line__leaf--1"></div>
+          <div class="flower__line__leaf flower__line__leaf--2"></div>
+          <div class="flower__line__leaf flower__line__leaf--3"></div>
+          <div class="flower__line__leaf flower__line__leaf--4"></div>
+        </div>
+      </div>
+  
+      <div class="flower flower--3">
+        <div class="flower__leafs flower__leafs--3">
+          <div class="flower__leaf flower__leaf--1"></div>
+          <div class="flower__leaf flower__leaf--2"></div>
+          <div class="flower__leaf flower__leaf--3"></div>
+          <div class="flower__leaf flower__leaf--4"></div>
+          <div class="flower__white-circle"></div>
+  
+          <div class="flower__light flower__light--1"></div>
+          <div class="flower__light flower__light--2"></div>
+          <div class="flower__light flower__light--3"></div>
+          <div class="flower__light flower__light--4"></div>
+          <div class="flower__light flower__light--5"></div>
+          <div class="flower__light flower__light--6"></div>
+          <div class="flower__light flower__light--7"></div>
+          <div class="flower__light flower__light--8"></div>
+  
+        </div>
+        <div class="flower__line">
+          <div class="flower__line__leaf flower__line__leaf--1"></div>
+          <div class="flower__line__leaf flower__line__leaf--2"></div>
+          <div class="flower__line__leaf flower__line__leaf--3"></div>
+          <div class="flower__line__leaf flower__line__leaf--4"></div>
+        </div>
+      </div>
+  
+      <div class="grow-ans" style="--d:2.4s">
+        <div class="flower__g-right flower__g-right--1">
+          <div class="leaf"></div>
+        </div>
+      </div>
+  
+      <div class="grow-ans" style="--d:2.8s">
+        <div class="flower__g-right flower__g-right--2">
+          <div class="leaf"></div>
+        </div>
+      </div>
+  
+      <div class="grow-ans" style="--d:2.8s">
+        <div class="flower__g-front">
+          <div class="flower__g-front__leaf-wrapper flower__g-front__leaf-wrapper--1">
+            <div class="flower__g-front__leaf"></div>
+          </div>
+          <div class="flower__g-front__leaf-wrapper flower__g-front__leaf-wrapper--2">
+            <div class="flower__g-front__leaf"></div>
+          </div>
+          <div class="flower__g-front__leaf-wrapper flower__g-front__leaf-wrapper--3">
+            <div class="flower__g-front__leaf"></div>
+          </div>
+          <div class="flower__g-front__leaf-wrapper flower__g-front__leaf-wrapper--4">
+            <div class="flower__g-front__leaf"></div>
+          </div>
+          <div class="flower__g-front__leaf-wrapper flower__g-front__leaf-wrapper--5">
+            <div class="flower__g-front__leaf"></div>
+          </div>
+          <div class="flower__g-front__leaf-wrapper flower__g-front__leaf-wrapper--6">
+            <div class="flower__g-front__leaf"></div>
+          </div>
+          <div class="flower__g-front__leaf-wrapper flower__g-front__leaf-wrapper--7">
+            <div class="flower__g-front__leaf"></div>
+          </div>
+          <div class="flower__g-front__leaf-wrapper flower__g-front__leaf-wrapper--8">
+            <div class="flower__g-front__leaf"></div>
+          </div>
+          <div class="flower__g-front__line"></div>
+        </div>
+      </div>
+  
+      <div class="grow-ans" style="--d:3.2s">
+        <div class="flower__g-fr">
+          <div class="leaf"></div>
+          <div class="flower__g-fr__leaf flower__g-fr__leaf--1"></div>
+          <div class="flower__g-fr__leaf flower__g-fr__leaf--2"></div>
+          <div class="flower__g-fr__leaf flower__g-fr__leaf--3"></div>
+          <div class="flower__g-fr__leaf flower__g-fr__leaf--4"></div>
+          <div class="flower__g-fr__leaf flower__g-fr__leaf--5"></div>
+          <div class="flower__g-fr__leaf flower__g-fr__leaf--6"></div>
+          <div class="flower__g-fr__leaf flower__g-fr__leaf--7"></div>
+          <div class="flower__g-fr__leaf flower__g-fr__leaf--8"></div>
+        </div>
+      </div>
+  
+      <div class="long-g long-g--0">
+        <div class="grow-ans" style="--d:3s">
+          <div class="leaf leaf--0"></div>
+        </div>
+        <div class="grow-ans" style="--d:2.2s">
+          <div class="leaf leaf--1"></div>
+        </div>
+        <div class="grow-ans" style="--d:3.4s">
+          <div class="leaf leaf--2"></div>
+        </div>
+        <div class="grow-ans" style="--d:3.6s">
+          <div class="leaf leaf--3"></div>
+        </div>
+      </div>
+  
+      <div class="long-g long-g--1">
+        <div class="grow-ans" style="--d:3.6s">
+          <div class="leaf leaf--0"></div>
+        </div>
+        <div class="grow-ans" style="--d:3.8s">
+          <div class="leaf leaf--1"></div>
+        </div>
+        <div class="grow-ans" style="--d:4s">
+          <div class="leaf leaf--2"></div>
+        </div>
+        <div class="grow-ans" style="--d:4.2s">
+          <div class="leaf leaf--3"></div>
+        </div>
+      </div>
+  
+      <div class="long-g long-g--2">
+        <div class="grow-ans" style="--d:4s">
+          <div class="leaf leaf--0"></div>
+        </div>
+        <div class="grow-ans" style="--d:4.2s">
+          <div class="leaf leaf--1"></div>
+        </div>
+        <div class="grow-ans" style="--d:4.4s">
+          <div class="leaf leaf--2"></div>
+        </div>
+        <div class="grow-ans" style="--d:4.6s">
+          <div class="leaf leaf--3"></div>
+        </div>
+      </div>
+  
+      <div class="long-g long-g--3">
+        <div class="grow-ans" style="--d:4s">
+          <div class="leaf leaf--0"></div>
+        </div>
+        <div class="grow-ans" style="--d:4.2s">
+          <div class="leaf leaf--1"></div>
+        </div>
+        <div class="grow-ans" style="--d:3s">
+          <div class="leaf leaf--2"></div>
+        </div>
+        <div class="grow-ans" style="--d:3.6s">
+          <div class="leaf leaf--3"></div>
+        </div>
+      </div>
+  
+      <div class="long-g long-g--4">
+        <div class="grow-ans" style="--d:4s">
+          <div class="leaf leaf--0"></div>
+        </div>
+        <div class="grow-ans" style="--d:4.2s">
+          <div class="leaf leaf--1"></div>
+        </div>
+        <div class="grow-ans" style="--d:3s">
+          <div class="leaf leaf--2"></div>
+        </div>
+        <div class="grow-ans" style="--d:3.6s">
+          <div class="leaf leaf--3"></div>
+        </div>
+      </div>
+  
+      <div class="long-g long-g--5">
+        <div class="grow-ans" style="--d:4s">
+          <div class="leaf leaf--0"></div>
+        </div>
+        <div class="grow-ans" style="--d:4.2s">
+          <div class="leaf leaf--1"></div>
+        </div>
+        <div class="grow-ans" style="--d:3s">
+          <div class="leaf leaf--2"></div>
+        </div>
+        <div class="grow-ans" style="--d:3.6s">
+          <div class="leaf leaf--3"></div>
+        </div>
+      </div>
+  
+      <div class="long-g long-g--6">
+        <div class="grow-ans" style="--d:4.2s">
+          <div class="leaf leaf--0"></div>
+        </div>
+        <div class="grow-ans" style="--d:4.4s">
+          <div class="leaf leaf--1"></div>
+        </div>
+        <div class="grow-ans" style="--d:4.6s">
+          <div class="leaf leaf--2"></div>
+        </div>
+        <div class="grow-ans" style="--d:4.8s">
+          <div class="leaf leaf--3"></div>
+        </div>
+      </div>
+  
+      <div class="long-g long-g--7">
+        <div class="grow-ans" style="--d:3s">
+          <div class="leaf leaf--0"></div>
+        </div>
+        <div class="grow-ans" style="--d:3.2s">
+          <div class="leaf leaf--1"></div>
+        </div>
+        <div class="grow-ans" style="--d:3.5s">
+          <div class="leaf leaf--2"></div>
+        </div>
+        <div class="grow-ans" style="--d:3.6s">
+          <div class="leaf leaf--3"></div>
+        </div>
+      </div>
+
+    <!-- Butterflies (SVG-path driven) -->
+    <svg class="butterfly-svg" id="butterflySvg" viewBox="0 0 100 100" preserveAspectRatio="none">
+      <path id="bfPath1" d="M5,70 C20,20 80,20 95,70" fill="none" />
+      <path id="bfPath2" d="M95,30 C70,80 30,80 5,30" fill="none" />
+      <path id="bfPath3" d="M50,10 C90,50 90,90 50,90 C10,90 10,50 50,10" fill="none" />
+    </svg>
+    <div class="bf-wrapper" id="bf1"><span class="bf-emoji">🦋</span></div>
+    <div class="bf-wrapper" id="bf2"><span class="bf-emoji">🦋</span></div>
+    <div class="bf-wrapper" id="bf3"><span class="bf-emoji">🦋</span></div>
+    <!-- Sticky note -->
+    <div class="sticky-note" id="stickyNote" onclick="goToSlide('slide-gift')">
+      <div class="sticky-pin">📌</div>
+      <p>Klik Aku!</p>
+    </div>
+  </section>
+
+  <!-- ==================== SLIDE 14: MY GIFT ==================== -->
+  <section class="slide" id="slide-gift">
+    <div class="flower-bg"></div>
+    <div class="slide-content gift-layout">
+      <div class="gift-top">
+        <div class="gift-icon">🎁</div>
+        <h2 class="typewriter gift-text" id="text-gift">Ini ada sedikit hadiahh dari aku. Tolong diterima yaa. Kamu
+          tinggal scan aja QR ini, nanti hadiahnya muncull.</h2>
+      </div>
+      <div class="gift-qr">
+        <!-- QR Code placeholder - user can replace this -->
+        <div class="qr-placeholder" id="qrCode">
+          <img src="assets/qr-code.jpg" alt="QR Code" id="qrImage" class="qr-image" />
+          <p class="qr-note">Scan ini senggg</p>
+        </div>
+      </div>
+      <button class="next-btn" onclick="goToSlide('slide-outro')">Lanjut 🌸</button>
+    </div>
+    <div class="floating-petals"></div>
+  </section>
+
+  <!-- ==================== SLIDE 15: OUTRO ==================== -->
+  <section class="slide" id="slide-outro">
+    <div class="flower-bg outro-bg"></div>
+    <div class="slide-content center">
+      <div class="outro-card">
+        <div class="outro-icon">💕🎉💕</div>
+        <h1 class="typewriter outro-text" id="text-outro">Sekali lagi Happy Birthday yaa sayanggg. Wish You All the
+          Besttt!!</h1>
+        <div class="outro-flowers">🌸🌺🌼🌸🌺</div>
+      </div>
+    </div>
+    <div class="floating-petals"></div>
+    <!-- Final fade overlay -->
+    <div class="final-overlay" id="finalOverlay"></div>
+  </section>
+
+  <!-- ==================== AUDIO ==================== -->
+  <!-- ==================== AUDIO ==================== -->
+  <audio id="audioMain" loop>
+    <source src="main-backsound.mp3" type="audio/mpeg" />
+  </audio>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
